@@ -19,7 +19,7 @@ class Stan
       [:p, :p, :p, :p, :p, :p, :p, :p, :p, :p, :x, :x, :x, :x, :x, :x, :p],
     ]
     @gracz = [14, 7]
-    @brakuje = 2
+    @brakuje = 12
     @obrazki = Gosu::Image::load_tiles("grafiki.png", 32, 32)
     @przes = Gosu::Sample.new("dzwieki/przes.wav")
     @zalicz = Gosu::Sample.new("dzwieki/zalicz.wav")
