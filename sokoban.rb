@@ -103,7 +103,8 @@ class GameWindow < Gosu::Window
     self.caption = "Sokoban"
     @stan = Stan.new
     @blokada = 0
-    @font = Gosu::Font.new(200)
+    @duzy_font = Gosu::Font.new(200)
+    @maly_font = Gosu::Font.new(20)
   end
 
   def update
@@ -132,9 +133,12 @@ class GameWindow < Gosu::Window
 
   def draw
     if @stan.brakuje == 0
-      @font.draw("Wygrana", 12, 12, 3, 1, 1, Gosu::Color::WHITE)
+      @duzy_font.draw("Wygrana", 12, 12, 3, 1, 1, Gosu::Color::WHITE)
     else
       @stan.narysuj
+      status = 'Brakuje: ' + @stan.brakuje.to_s
+      @maly_font.draw(status, 901, 11, 2, 1, 1, Gosu::Color::WHITE)
+      @maly_font.draw(status, 900, 10, 3, 1, 1, Gosu::Color::GREEN)
     end
   end
 end
