@@ -19,8 +19,12 @@ class Stan
       [:p, :p, :p, :p, :p, :p, :p, :p, :p, :p, :x, :x, :x, :x, :x, :x, :p],
     ]
     @gracz = [14, 7]
-    @brakuje = 12
+    @brakuje = 2
     @obrazki = Gosu::Image::load_tiles("grafiki.png", 32, 32)
+    @przes = Gosu::Sample.new("dzwieki/przes.wav")
+    @zalicz = Gosu::Sample.new("dzwieki/zalicz.wav")
+    @wygrana = Gosu::Sample.new("dzwieki/wygrana.wav")
+    @krok = Gosu::Sample.new("dzwieki/krok.wav")
   end
 
   def narysuj
@@ -64,6 +68,7 @@ class Stan
     plus_1 = @plansza[@gracz[1] + deltay][@gracz[0] + deltax]
     if plus_1 == :p or plus_1 == :c
       @gracz = [@gracz[0] + deltax, @gracz[1] + deltay]
+      @krok.play
     end
     if plus_1 == :s or plus_1 == :v
       plus_2 = @plansza[@gracz[1] + 2*deltay][@gracz[0] + 2*deltax]
@@ -76,9 +81,15 @@ class Stan
         end
         if plus_2 == :p
           @plansza[@gracz[1] + 2*deltay][@gracz[0] + 2*deltax] = :s
+          @przes.play
         else
           @plansza[@gracz[1] + 2*deltay][@gracz[0] + 2*deltax] = :v
           @brakuje -= 1
+          if @brakuje == 0
+            @wygrana.play
+         else
+            @zalicz.play
+          end
         end
         @gracz = [@gracz[0] + deltax, @gracz[1] + deltay]
       end
