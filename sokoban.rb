@@ -100,19 +100,19 @@ class GameWindow < Gosu::Window
     if @blokada > 0 or @stan.brakuje == 0
       @blokada -= 1
     else
-      if Gosu::button_down? Gosu::KbLeft
+      if Gosu::button_down? Gosu::KbLeft or Gosu::button_down? Gosu::GpLeft
         @stan.probuj_przesunac -1, 0
         @blokada = 10
       end
-      if Gosu::button_down? Gosu::KbRight
+      if Gosu::button_down? Gosu::KbRight or Gosu::button_down? Gosu::GpRight
         @stan.probuj_przesunac 1, 0
         @blokada = 10
       end
-      if Gosu::button_down? Gosu::KbDown
+      if Gosu::button_down? Gosu::KbDown or Gosu::button_down? Gosu::GpDown
         @stan.probuj_przesunac 0, 1
         @blokada = 10
       end
-      if Gosu::button_down? Gosu::KbUp
+      if Gosu::button_down? Gosu::KbUp or Gosu::button_down? Gosu::GpUp
         @stan.probuj_przesunac 0, -1
         @blokada = 10
       end
