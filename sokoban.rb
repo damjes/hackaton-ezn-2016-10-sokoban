@@ -59,7 +59,7 @@ class Stan
             -1
           end
         end
-        @obrazki[num].draw 32*x, 32*y, 0 if num != -1
+        @obrazki[num].draw 32*x+48, 32*y+32, 0 if num != -1
       end
     end
   end
@@ -99,11 +99,11 @@ end
 
 class GameWindow < Gosu::Window
   def initialize
-    super 1024,768
+    super 640, 480
     self.caption = "Sokoban"
     @stan = Stan.new
     @blokada = 0
-    @duzy_font = Gosu::Font.new(200)
+    @duzy_font = Gosu::Font.new(160)
     @maly_font = Gosu::Font.new(20)
   end
 
@@ -133,12 +133,12 @@ class GameWindow < Gosu::Window
 
   def draw
     if @stan.brakuje == 0
-      @duzy_font.draw("Wygrana", 12, 12, 3, 1, 1, Gosu::Color::WHITE)
+      @duzy_font.draw("Wygrana", 12, 12, 3, 1, 1, Gosu::Color::YELLOW)
     else
       @stan.narysuj
       status = 'Brakuje: ' + @stan.brakuje.to_s
-      @maly_font.draw(status, 901, 11, 2, 1, 1, Gosu::Color::WHITE)
-      @maly_font.draw(status, 900, 10, 3, 1, 1, Gosu::Color::GREEN)
+      @maly_font.draw(status, 11, 11, 2, 1, 1, Gosu::Color::WHITE)
+      @maly_font.draw(status, 10, 10, 3, 1, 1, Gosu::Color::GREEN)
     end
   end
 end
