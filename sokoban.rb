@@ -192,6 +192,7 @@ class GameWindow < Gosu::Window
 		self.caption = "Sokoban"
 		@stan = Stan.new
 		@blokada = 0
+		@czas = 0
 		@duzy_font = Gosu::Font.new(160)
 		@maly_font = Gosu::Font.new(20)
 	end
@@ -218,6 +219,7 @@ class GameWindow < Gosu::Window
 				@blokada = 10
 			end
 		end
+		@czas += 1
 	end
 
 	def draw
@@ -225,7 +227,7 @@ class GameWindow < Gosu::Window
 			@duzy_font.draw("Wygrana", 12, 12, 3, 1, 1, Gosu::Color::YELLOW)
 		else
 			@stan.narysuj
-			status = 'Brakuje: ' + @stan.brakuje.to_s
+			status = 'Brakuje: ' + @stan.brakuje.to_s + '   Czas: ' + (@czas/60).to_s
 			@maly_font.draw(status, 11, 11, 2, 1, 1, Gosu::Color::WHITE)
 			@maly_font.draw(status, 10, 10, 3, 1, 1, Gosu::Color::GREEN)
 		end
