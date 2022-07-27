@@ -224,12 +224,12 @@ class GameWindow < Gosu::Window
 
 	def draw
 		if @stan.brakuje == 0
-			@duzy_font.draw("Wygrana", 12, 12, 3, 1, 1, Gosu::Color::YELLOW)
+			@duzy_font.draw_text("Wygrana", 12, 12, 3, 1, 1, Gosu::Color::YELLOW)
 		else
 			@stan.narysuj
 			status = 'Brakuje: ' + @stan.brakuje.to_s + '   Czas: ' + (@czas/60).to_s
-			@maly_font.draw(status, 11, 11, 2, 1, 1, Gosu::Color::WHITE)
-			@maly_font.draw(status, 10, 10, 3, 1, 1, Gosu::Color::GREEN)
+			@maly_font.draw_text(status, 11, 11, 2, 1, 1, Gosu::Color::WHITE)
+			@maly_font.draw_text(status, 10, 10, 3, 1, 1, Gosu::Color::GREEN)
 		end
 	end
 end
