@@ -174,8 +174,8 @@ class GameWindow < Gosu::Window
 		@stan = Stan.new
 		@blokada = 0
 		@czas = 0
-		@duzy_font = Gosu::Font.new(160)
-		@maly_font = Gosu::Font.new(20)
+		@duzy_font = Gosu::Font.new(300)
+		@maly_font = Gosu::Font.new(36)
 	end
 
 	def update
@@ -205,7 +205,7 @@ class GameWindow < Gosu::Window
 
 	def draw
 		if @stan.brakuje == 0
-			@duzy_font.draw_text("Wygrana", 12, 12, 3, 1, 1, Gosu::Color::YELLOW)
+			@duzy_font.draw_text("Wygrana", 50, 100, 3, 1, 1, Gosu::Color::YELLOW)
 		else
 			@stan.narysuj
 			status = 'Brakuje: ' + @stan.brakuje.to_s + '   Czas: ' + (@czas/60).to_s
