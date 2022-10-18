@@ -3,28 +3,9 @@ require 'gosu'
 class Stan
 	attr_reader :brakuje
 	def initialize
-=begin
-		@plansza = [
-			[:p, :p, :p, :p, :p, :p, :p, :p, :x, :x, :x, :x, :x, :p, :p, :p, :p],
-			[:p, :p, :p, :p, :p, :p, :p, :p, :x, :p, :p, :p, :x, :x, :x, :x, :x],
-			[:p, :p, :p, :p, :p, :p, :p, :p, :x, :p, :x, :s, :x, :x, :p, :p, :x],
-			[:p, :p, :p, :p, :p, :p, :p, :p, :x, :p, :p, :p, :p, :p, :s, :p, :x],
-			[:x, :x, :x, :x, :x, :x, :x, :x, :x, :p, :x, :x, :x, :p, :p, :p, :x],
-			[:x, :c, :c, :c, :c, :p, :p, :x, :x, :p, :s, :p, :p, :s, :x, :x, :x],
-			[:x, :c, :c, :c, :c, :p, :p, :p, :p, :s, :p, :s, :s, :p, :x, :x, :p],
-			[:x, :c, :c, :c, :c, :p, :p, :x, :x, :s, :p, :p, :s, :p, :p, :x, :p],
-			[:x, :x, :x, :x, :x, :x, :x, :x, :x, :p, :p, :s, :p, :p, :x, :x, :p],
-			[:p, :p, :p, :p, :p, :p, :p, :p, :x, :p, :s, :p, :s, :p, :p, :x, :p],
-			[:p, :p, :p, :p, :p, :p, :p, :p, :x, :x, :x, :p, :p, :p, :p, :x, :p],
-			[:p, :p, :p, :p, :p, :p, :p, :p, :p, :p, :x, :p, :p, :p, :p, :x, :p],
-			[:p, :p, :p, :p, :p, :p, :p, :p, :p, :p, :x, :x, :x, :x, :x, :x, :p],
-		]
-		@gracz = [14, 7]
-		@brakuje = 12
-=end
 		@brakuje = 0
 		czytaj_plik 'plansza.ppm'
-		@obrazki = Gosu::Image::load_tiles("grafiki.png", 32, 32)
+		@obrazki = Gosu::Image::load_tiles("grafiki.png", 64, 64)
 		@przes = Gosu::Sample.new("dzwieki/przes.wav")
 		@zalicz = Gosu::Sample.new("dzwieki/zalicz.wav")
 		@wygrana = Gosu::Sample.new("dzwieki/wygrana.wav")
@@ -63,7 +44,7 @@ class Stan
 						-1
 					end
 				end
-				@obrazki[num].draw 32*x+48, 32*y+32, 0 if num != -1
+				@obrazki[num].draw 64*x+128, 64*y+32, 0 if num != -1
 			end
 		end
 	end
@@ -188,7 +169,7 @@ end
 
 class GameWindow < Gosu::Window
 	def initialize
-		super 640, 480
+		super 1024, 768
 		self.caption = "Sokoban"
 		@stan = Stan.new
 		@blokada = 0

@@ -7,3 +7,8 @@ Jak to uruchomić
 ================
 
 Trzeba mieć Rubiego (u mnie działa wersja 2.7.4). Następnie w terminalu (po prostu, lub w Windowsie wybieramy terminal z Ruby) wydajemy polecenie `gem install gosu`. Potem odpalamy grę dwuklikiem lub `ruby sokoban.rb`, będąc w odpowiednim katalogu.
+
+Grafiki
+=======
+
+Grafiki pochodzą od Kenney (kenney.nl).
