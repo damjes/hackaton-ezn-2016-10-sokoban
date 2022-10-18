@@ -6,4 +6,4 @@ W sobotę 1.10.2016 w Elektronicznych Zakładach Naukowych we Wrocławiu miały 
 Jak to uruchomić
 ================
 
-Trzeba mieć Rubiego (u mnie działa wersja 2.3.1). Następnie w terminalu (po prostu, lub w Windowsie wybieramy terminal z Ruby) wydajemy polecenie `gem install gosu`. Potem odpalamy grę dwuklikiem lub `ruby sokoban.rb`, będąc w odpowiednim katalogu.
+Trzeba mieć Rubiego (u mnie działa wersja 2.7.4). Następnie w terminalu (po prostu, lub w Windowsie wybieramy terminal z Ruby) wydajemy polecenie `gem install gosu`. Potem odpalamy grę dwuklikiem lub `ruby sokoban.rb`, będąc w odpowiednim katalogu.
