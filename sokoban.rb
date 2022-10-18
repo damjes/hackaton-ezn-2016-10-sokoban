@@ -44,7 +44,7 @@ class Stan
 						-1
 					end
 				end
-				@obrazki[num].draw 64*x+128, 64*y+32, 0 if num != -1
+				@obrazki[num].draw 64*x+256, 64*y+48, 0 if num != -1
 			end
 		end
 	end
@@ -169,7 +169,7 @@ end
 
 class GameWindow < Gosu::Window
 	def initialize
-		super 1024, 768
+		super 1280, 800, true
 		self.caption = "Sokoban"
 		@stan = Stan.new
 		@blokada = 0
